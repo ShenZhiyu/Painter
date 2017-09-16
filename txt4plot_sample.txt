@@ -1,0 +1,21 @@
+#title#
+simple_plot_title
+
+#xlabel#
+xLabel
+
+#ylabel#
+yLabel
+
+#linestyle#
+--
+
+#linewidth#
+3.0
+
+#data#
+x: 1,2,3,4,5
+y1: 91,92,93,91,92
+y2: 92,93,92,93.5,94
+yy3: 93,91,90,99,95
+#data end#
