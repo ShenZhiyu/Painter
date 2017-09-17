@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 16 19:52:04 2017
-
-@author: shenzy
-"""
-
 from sys import argv
 import painter_reader
 import numpy as np
@@ -41,6 +33,7 @@ if __name__ == '__main__':
 #    ax.spines['left'].set_position(('data',0))
     # # # # #
 
+    # # # # #
     for l in cf.options('data'):
         ldata_np = np.fromstring(cf.get('data', l), dtype=float, sep=',')
         plt.plot(ldata_np[0::2], ldata_np[1::2],
@@ -53,6 +46,7 @@ if __name__ == '__main__':
     plt.annotate(r'$x=y$', xy=(2, 93), xycoords='data', xytext=(+30, +30),
              textcoords='offset points', fontsize=16,
              arrowprops=dict(arrowstyle='->', connectionstyle="arc3,rad=.2"))
+    # # # # #
     
     plt.savefig(filename.replace('txt', 'pdf'))
 #    plt.show()
