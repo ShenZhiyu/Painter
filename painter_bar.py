@@ -17,17 +17,22 @@ if __name__ == '__main__':
     plt.title(cf.get('plot', 'title'))
     plt.xlabel(cf.get('plot', 'xlabel'))
     plt.ylabel(cf.get('plot', 'ylabel'))
+    
+    if cf.has_option('plot', 'ylim'):
+        plt.ylim(tuple(np.fromstring(cf.get('plot', 'ylim'), dtype=float, sep=',').tolist()))
     # # # # #
 
     # # # # #
-    for l in cf.options('data'):
-        ldata_np = np.fromstring(cf.get('data', l), dtype=float, sep=',')
-        plt.bar(ldata_np[0::2], ldata_np[1::2])
-        for x, y in zip(ldata_np[0::2], ldata_np[1::2]):
-            # ha: horizontal alignment
-            # va: vertical alignment
+    xt1 = []
+    xt2 = []
+    for b in cf.options('data'):
+        ldata_list = cf.get('data', b).split(',')
+        plt.bar(list(map(float,ldata_list[1::3])), list(map(float,ldata_list[2::3])))
+        for x, y in zip(list(map(float,ldata_list[1::3])), list(map(float,ldata_list[2::3]))):
             plt.text(x + 0.0, y + 0.05, '%.2f' % y, ha='center', va='bottom')
-    plt.xticks(list(range(1,11)),[r'$m1$', r'$m2$', r'$m3$', r'$m4$', r'$m5$', r'$m6$', r'$m7$', r'$m8$', r'$m9$', r'$m10$',])
+        xt1.extend(list(map(float, ldata_list[1::3])))
+        xt2.extend(ldata_list[0::3])
+    plt.xticks(xt1, xt2)
     # # # # #
 
     plt.savefig(filename.replace('txt', 'pdf'))

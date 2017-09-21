@@ -3,6 +3,9 @@ figsize = 8,5
 title = simple_plot_title
 xlabel = xLabel
 ylabel = yLabel
+ylim = 84,100
 
 [data]
-bar1 = 1,91,2,92,3,93,4,91,5,92,6,87,7,98,8,85,9,77,10,82
+bar1 = m1,1,91,m1,5,95
+bar2 = m2,2,92,m2,6,99
+bar3 = m3,3,91,m3,7,92
